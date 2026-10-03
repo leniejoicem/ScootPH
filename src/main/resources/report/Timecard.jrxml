@@ -1,0 +1,167 @@
+<jasperReport name="Timecard" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c020ad4f-6e3b-4b7b-b88e-9e6d8c5e0001">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="employee_id" class="java.lang.Integer"/>
+	<parameter name="month" class="java.lang.Integer"/>
+	<parameter name="year" class="java.lang.Integer"/>
+	<parameter name="LogoPath" class="java.net.URL"/>
+	<query language="SQL"><![CDATA[
+        SELECT * FROM vw_timecard_report
+        WHERE employee_id = $P{employee_id}
+          AND EXTRACT(MONTH FROM date) = $P{month}
+          AND EXTRACT(YEAR FROM date) = $P{year}
+          AND NOT (
+             time_in::time = TIME '00:00' AND
+             time_out::time = TIME '00:00'
+        )]]></query>
+	<field name="employee_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="employee_hours"/>
+	</field>
+	<field name="full_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="full_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="full_name"/>
+	</field>
+	<field name="position" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="position"/>
+		<property name="com.jaspersoft.studio.field.label" value="position"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="employee_position"/>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="date"/>
+		<property name="com.jaspersoft.studio.field.label" value="date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="employee_hours"/>
+	</field>
+	<field name="day" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="day"/>
+		<property name="com.jaspersoft.studio.field.label" value="day"/>
+	</field>
+	<field name="time_in" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="time_in"/>
+		<property name="com.jaspersoft.studio.field.label" value="time_in"/>
+	</field>
+	<field name="time_out" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="time_out"/>
+		<property name="com.jaspersoft.studio.field.label" value="time_out"/>
+	</field>
+	<field name="total_hours_worked" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="total_hours_worked"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_hours_worked"/>
+	</field>
+	<field name="remarks" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="remarks"/>
+		<property name="com.jaspersoft.studio.field.label" value="remarks"/>
+	</field>
+	<title height="120">
+		<element kind="staticText" uuid="b82305c3-334c-4c82-a6c0-f274d89ed726" x="0" y="87" width="558" height="30" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[EMPLOYEE TIMECARD]]></text>
+		</element>
+		<element kind="staticText" uuid="eed48ac4-92a7-4b5a-8248-bf18d4ee9d14" x="335" y="53" width="50" height="20" hTextAlign="Right">
+			<text><![CDATA[Date:]]></text>
+			<box rightPadding="4"/>
+		</element>
+		<element kind="textField" uuid="c1c4478c-0805-4f8f-93a0-76c4ca14bf94" x="385" y="53" width="160" height="20" pattern="MMMM d, yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="staticText" uuid="6ae8c393-16a3-4df4-af41-4e09a43f4d99" x="140" y="1" width="184" height="25" fontSize="19.0" bold="true">
+			<text><![CDATA[ScootPH]]></text>
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="99e212f6-63c9-4a3e-92d1-9ad56e52a7af" x="140" y="56" width="181" height="15">
+			<text><![CDATA[Email: corporate@scootph.com]]></text>
+		</element>
+		<element kind="staticText" uuid="53d3cee6-8e12-4088-bc22-1f3303012a77" x="140" y="26" width="260" height="15">
+			<text><![CDATA[Bagong Nayon, Quezon City]]></text>
+		</element>
+		<element kind="staticText" uuid="89ccdf88-3a19-4873-8ba0-360baf758780" x="140" y="41" width="180" height="15">
+			<text><![CDATA[Phone: (028) 911-5071]]></text>
+		</element>
+		<element kind="image" uuid="03c1e9e4-1e1f-471d-8915-861d8f36782a" x="2" y="-7" width="100" height="80">
+			<expression><![CDATA[$P{LogoPath}]]></expression>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</title>
+	<pageHeader height="75">
+		<element kind="textField" uuid="1181d8fc-ca96-4709-81d5-bb85d2358e23" x="20" y="13" width="193" height="15" fontSize="11.0" bold="true">
+			<expression><![CDATA["EMPLOYEE ID"]]></expression>
+		</element>
+		<element kind="textField" uuid="e45231b8-1c19-46ed-a5e8-741c9ebf007d" x="213" y="13" width="200" height="15" fontSize="11.0">
+			<expression><![CDATA[$F{employee_id}]]></expression>
+		</element>
+		<element kind="textField" uuid="35c3c6df-3091-424d-a614-6d7cc8a7d932" x="20" y="28" width="193" height="15" fontSize="11.0" bold="true">
+			<expression><![CDATA["EMPLOYEE NAME"]]></expression>
+		</element>
+		<element kind="textField" uuid="9a6444d5-c23c-4bc6-b317-83ea4b67071a" x="213" y="28" width="345" height="15" fontSize="11.0">
+			<expression><![CDATA[$F{full_name}]]></expression>
+		</element>
+		<element kind="textField" uuid="c6435a46-8258-4379-aa01-9d699237f2c9" x="20" y="43" width="193" height="15" bold="true">
+			<expression><![CDATA["EMPLOYEE POSITION"]]></expression>
+		</element>
+		<element kind="textField" uuid="59ca3009-0f83-42bd-b08a-cf7ee4b4f005" x="213" y="43" width="345" height="15" fontSize="11.0">
+			<expression><![CDATA[$F{position}]]></expression>
+		</element>
+		<element kind="textField" uuid="4d247873-f5ce-4593-b3fb-64313e854267" x="20" y="57" width="193" height="15" bold="true">
+			<expression><![CDATA["MONTH"]]></expression>
+		</element>
+		<element kind="textField" uuid="03c9ea1a-baf3-4e79-be0b-a5f6a8e4589b" x="212" y="57" width="345" height="15" fontSize="11.0">
+			<expression><![CDATA[new java.text.DateFormatSymbols().getMonths()[$P{month} - 1] + " " + $P{year}]]></expression>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</pageHeader>
+	<columnHeader height="55">
+		<element kind="staticText" uuid="b7c03b8a-c2e1-4d29-b772-0a2f8650f965" mode="Opaque" x="13" y="25" width="80" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Date]]></text>
+			<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+		</element>
+		<element kind="staticText" uuid="181530e2-742d-4568-b8a6-117e33f78fd9" mode="Opaque" x="93" y="25" width="80" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Day]]></text>
+			<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+		</element>
+		<element kind="staticText" uuid="9a455db3-40bb-4fee-b174-2d003dd59d4c" mode="Opaque" x="173" y="25" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Time In]]></text>
+			<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+		</element>
+		<element kind="staticText" uuid="b43e04c5-9749-46dc-a514-b61c8df0c0bd" mode="Opaque" x="273" y="25" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Time Out]]></text>
+			<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+		</element>
+		<element kind="staticText" uuid="20a8da21-3796-4a61-99a9-c87ce5da27b0" mode="Opaque" x="373" y="25" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Total Hrs]]></text>
+			<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+		</element>
+		<element kind="staticText" uuid="1cc185ac-6340-4c45-a693-a3627fd4eb80" mode="Opaque" x="473" y="25" width="85" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Remarks]]></text>
+			<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="textField" textAdjust="StretchHeight" stretchType="ContainerHeight" uuid="2647c583-ffd5-4c41-95aa-e305a2ec97c7" x="13" y="0" width="80" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd").format($F{date})]]></expression>
+				<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+			</element>
+			<element kind="textField" textAdjust="StretchHeight" stretchType="ContainerHeight" uuid="d6057b2e-4ac6-48c5-bc82-5c62f56f9478" x="93" y="0" width="80" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{day}]]></expression>
+				<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+			</element>
+			<element kind="textField" textAdjust="StretchHeight" stretchType="ContainerHeight" uuid="86843418-ef6e-41c9-866c-1ed78b2a699d" x="173" y="0" width="100" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{time_in}]]></expression>
+				<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+			</element>
+			<element kind="textField" textAdjust="StretchHeight" stretchType="ContainerHeight" uuid="e840b1d4-ee90-4261-8319-daa7c86b681a" x="273" y="0" width="100" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{time_out}]]></expression>
+				<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+			</element>
+			<element kind="textField" textAdjust="StretchHeight" stretchType="ContainerHeight" uuid="3a600d7f-1bff-4f01-9b52-9af20888a3e4" x="373" y="0" width="100" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{total_hours_worked}]]></expression>
+				<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+			</element>
+			<element kind="textField" textAdjust="StretchHeight" stretchType="ContainerHeight" uuid="ce528a92-eb7f-4b04-90ae-7ac8623c19b8" x="473" y="0" width="85" height="20" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{remarks}]]></expression>
+				<box leftPadding="3" rightPadding="3"><pen lineWidth="0.75" lineColor="#000000"/></box>
+			</element>
+		</band>
+	</detail>
+</jasperReport>

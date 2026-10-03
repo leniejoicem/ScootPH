@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#F05A28"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- wheels -->
+    <circle cx="18" cy="43" r="6"/>
+    <circle cx="47" cy="43" r="6"/>
+    <!-- steering column and handlebar -->
+    <path d="M44.5 37 L40 16.5"/>
+    <path d="M35.5 16.5 H44"/>
+    <!-- floorboard -->
+    <path d="M25 37 H44.5"/>
+  </g>
+  <!-- body / rear cowl -->
+  <path d="M9.5 38 C9.5 31 15 27 22 27 H29.5 C31.5 27 32.6 28.6 32 30.5 L29.8 37.2 C29.5 38 28.8 38.5 28 38.5 H11 C10.2 38.5 9.5 38.6 9.5 38 Z" fill="#FFFFFF"/>
+  <!-- seat -->
+  <rect x="13" y="23" width="17" height="5" rx="2.5" fill="#FFFFFF"/>
+  <!-- headlight -->
+  <circle cx="45.4" cy="22.5" r="2.2" fill="#FFFFFF"/>
+</svg>

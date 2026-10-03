@@ -1,0 +1,176 @@
+<jasperReport name="EmployeeProfileReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="56e9879f-c3e3-499f-9d60-0ab95c238e28">
+	<parameter name="employee_id" class="java.lang.Integer"/>
+	<parameter name="LogoPath" class="java.net.URL"/>
+	<query language="sql"><![CDATA[
+        SELECT * FROM public.vw_employee_profile_report
+        WHERE employee_id = $P{employee_id}]]></query>
+	<field name="full_name" class="java.lang.String"/>
+	<field name="position_name" class="java.lang.String"/>
+	<field name="employee_status" class="java.lang.String"/>
+	<field name="phone_number" class="java.lang.String"/>
+	<field name="tin" class="java.lang.String"/>
+	<field name="sss" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="supervisor_name" class="java.lang.String"/>
+	<field name="employee_id" class="java.lang.Long"/>
+	<field name="birthday" class="java.sql.Date"/>
+	<field name="pag_ibig" class="java.lang.Long"/>
+	<field name="philhealth" class="java.lang.Long"/>
+	<field name="basic_salary" class="java.math.BigDecimal"/>
+	<field name="hourly_rate" class="java.math.BigDecimal"/>
+	<field name="rice_subsidy" class="java.math.BigDecimal"/>
+	<field name="phone_allowance" class="java.math.BigDecimal"/>
+	<field name="clothing_allowance" class="java.math.BigDecimal"/>
+	<title height="123">
+		<element kind="staticText" uuid="5c89a1e5-c1ae-41fa-adbd-dc25e7d19d59" x="335" y="57" width="50" height="20" hTextAlign="Right">
+			<text><![CDATA[Date:]]></text>
+			<box rightPadding="4"/>
+		</element>
+		<element kind="textField" uuid="3ce59df5-9e4c-4b84-a674-7791d3c2977f" x="385" y="57" width="160" height="20" pattern="MMMM d, yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="staticText" uuid="3e8c72c3-76fe-4348-bc2d-e0d7e0d42a67" x="140" y="5" width="184" height="25" fontSize="19.0" bold="true">
+			<text><![CDATA[ScootPH]]></text>
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="223c1755-fe43-4ea5-bac0-5485c102b321" x="140" y="60" width="181" height="15">
+			<text><![CDATA[Email: corporate@scootph.com]]></text>
+		</element>
+		<element kind="staticText" uuid="d0d0f670-5f62-4984-8a7e-e1e6108da8d2" x="140" y="30" width="260" height="15">
+			<text><![CDATA[Bagong Nayon, Quezon City]]></text>
+		</element>
+		<element kind="staticText" uuid="059da199-55c0-4c56-8e38-e7b861310e53" x="140" y="45" width="180" height="15">
+			<text><![CDATA[Phone: (028) 911-5071]]></text>
+		</element>
+		<element kind="image" uuid="495503e3-5f10-48e9-8626-2d223813b689" x="2" y="-3" width="100" height="80">
+			<expression><![CDATA[$P{LogoPath}]]></expression>
+		</element>
+		<element kind="staticText" uuid="775ef64b-251d-46f5-b8d6-8d5cb4d255bd" x="200" y="90" width="170" height="25" fontSize="13.0" bold="true">
+			<text><![CDATA[EMPLOYEE PROFILE]]></text>
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+	</title>
+	<detail>
+		<band height="566">
+			<element kind="staticText" uuid="2159cc5b-ebcc-47c8-b819-dc4f8058bf46" mode="Opaque" x="0" y="0" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Personal Information]]></text>
+			</element>
+			<element kind="staticText" uuid="36bd5906-8fb5-4ba6-87d4-04e7b06b971e" x="0" y="25" width="100" height="20">
+				<text><![CDATA[Employee ID]]></text>
+			</element>
+			<element kind="textField" uuid="9e9d85fc-3f89-4d1a-9f13-703fdd534581" x="100" y="25" width="150" height="20">
+				<expression><![CDATA[$F{employee_id}]]></expression>
+			</element>
+			<element kind="staticText" uuid="f5abe682-1171-4a49-a0b5-278ffb7f9136" x="0" y="45" width="100" height="20">
+				<text><![CDATA[Full Name]]></text>
+			</element>
+			<element kind="textField" uuid="53bf44be-ea28-4ad9-a759-37a61a233534" x="100" y="45" width="250" height="20">
+				<expression><![CDATA[$F{full_name}]]></expression>
+			</element>
+			<element kind="staticText" uuid="8dfb098e-1653-446f-8303-9383c44d0aa4" x="0" y="65" width="100" height="20">
+				<text><![CDATA[Birthday]]></text>
+			</element>
+			<element kind="textField" uuid="265d4472-5961-4131-acbd-158e15fc9343" x="100" y="65" width="150" height="20" pattern="yyyy-MM-dd">
+				<expression><![CDATA[$F{birthday}]]></expression>
+			</element>
+			<element kind="staticText" uuid="e268b77e-8caf-4b02-80cd-9f6fc5ced911" x="0" y="85" width="100" height="20">
+				<text><![CDATA[Phone]]></text>
+			</element>
+			<element kind="textField" uuid="ee27c779-15ed-4a09-bfff-93b6708072ce" x="100" y="85" width="150" height="20">
+				<expression><![CDATA[$F{phone_number}]]></expression>
+			</element>
+			<element kind="staticText" uuid="75f22b50-e350-4a89-8a47-e4fd92f6881f" x="0" y="105" width="100" height="20">
+				<text><![CDATA[Address]]></text>
+			</element>
+			<element kind="textField" uuid="06a6b3f3-8a7e-4e9b-95fe-098b09429868" x="100" y="105" width="300" height="20">
+				<expression><![CDATA[$F{address}]]></expression>
+			</element>
+			<element kind="staticText" uuid="b766fa91-3c8a-4b85-a505-825b1227e5ae" mode="Opaque" x="0" y="135" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Job Information]]></text>
+			</element>
+			<element kind="staticText" uuid="ae176bf1-3e7c-45a5-8549-45e9dbe8ae9b" x="0" y="160" width="100" height="20">
+				<text><![CDATA[Position]]></text>
+			</element>
+			<element kind="textField" uuid="76023ce4-7c0e-4533-ab22-a1c9dcedd57c" x="100" y="160" width="200" height="20">
+				<expression><![CDATA[$F{position_name}]]></expression>
+			</element>
+			<element kind="staticText" uuid="bbd7898d-701c-4a16-8364-d857a5de3ab2" x="0" y="180" width="100" height="20">
+				<text><![CDATA[Status]]></text>
+			</element>
+			<element kind="textField" uuid="f45aa7a9-b77c-4a6d-836c-d6d5381ad8db" x="100" y="180" width="200" height="20">
+				<expression><![CDATA[$F{employee_status}]]></expression>
+			</element>
+			<element kind="staticText" uuid="2779b38c-77be-4dc3-b6da-dc1846360876" x="0" y="200" width="100" height="20">
+				<text><![CDATA[Supervisor]]></text>
+			</element>
+			<element kind="textField" uuid="f49a191d-d15b-421d-9a7d-0f8a6463c13c" x="100" y="200" width="250" height="20">
+				<expression><![CDATA[$F{supervisor_name}]]></expression>
+			</element>
+			<element kind="staticText" uuid="35a536dd-3f60-46b8-8d14-88d971c2062e" mode="Opaque" x="0" y="230" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Government Identification Numbers]]></text>
+			</element>
+			<element kind="staticText" uuid="8dd315fa-ebb8-4ba5-b359-3f4504719c73" x="0" y="255" width="100" height="20">
+				<text><![CDATA[TIN]]></text>
+			</element>
+			<element kind="textField" uuid="041368af-545c-4b37-9e39-374ac22c625f" x="100" y="255" width="200" height="20">
+				<expression><![CDATA[$F{tin}]]></expression>
+			</element>
+			<element kind="staticText" uuid="ffeb96b8-599d-4e73-8b3d-bd28aa74be7b" x="0" y="275" width="100" height="20">
+				<text><![CDATA[SSS]]></text>
+			</element>
+			<element kind="textField" uuid="02452a66-2430-4c86-853d-e656a9d0845c" x="100" y="275" width="200" height="20">
+				<expression><![CDATA[$F{sss}]]></expression>
+			</element>
+			<element kind="staticText" uuid="5cfdc50d-ce99-4bfa-9bd4-aa61334bc338" x="0" y="295" width="100" height="20">
+				<text><![CDATA[Pag-IBIG]]></text>
+			</element>
+			<element kind="textField" uuid="55e7d7bc-e5d9-4ed8-bd36-c9b191488bf6" x="100" y="295" width="200" height="20">
+				<expression><![CDATA[$F{pag_ibig}]]></expression>
+			</element>
+			<element kind="staticText" uuid="84ee723c-29fa-40b0-8f40-d64f2918ac4f" x="0" y="315" width="100" height="20">
+				<text><![CDATA[PhilHealth]]></text>
+			</element>
+			<element kind="textField" uuid="6b382ae4-45ab-4574-9b3c-5467612e636c" x="100" y="315" width="200" height="20">
+				<expression><![CDATA[$F{philhealth}]]></expression>
+			</element>
+			<element kind="staticText" uuid="d8dabf13-bd4f-43bc-88ce-bbcb1360d1c7" mode="Opaque" x="0" y="345" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Benefits]]></text>
+			</element>
+			<element kind="staticText" uuid="bd13c544-6cd3-4886-84e2-e19b7f4adb2a" x="0" y="369" width="150" height="20">
+				<text><![CDATA[Rice Subsidy]]></text>
+			</element>
+			<element kind="textField" uuid="353422bc-5e84-45bb-b966-4c9188431885" x="160" y="369" width="200" height="20">
+				<expression><![CDATA[$F{rice_subsidy}]]></expression>
+			</element>
+			<element kind="staticText" uuid="b452386b-f96a-4c74-b046-e2ef7598522e" x="0" y="389" width="150" height="20">
+				<text><![CDATA[Phone Allowance]]></text>
+			</element>
+			<element kind="textField" uuid="7688f3a5-0730-4497-8b5b-5f1f62c90d9e" x="160" y="389" width="200" height="20">
+				<expression><![CDATA[$F{phone_allowance}]]></expression>
+			</element>
+			<element kind="staticText" uuid="6b886cf8-1507-462b-8c58-5da59be140f3" x="0" y="409" width="150" height="20">
+				<text><![CDATA[Clothing Allowance]]></text>
+			</element>
+			<element kind="textField" uuid="3d1dafe2-9c6a-461a-9c1b-29df6998f0c5" x="160" y="409" width="200" height="20">
+				<expression><![CDATA[$F{clothing_allowance}]]></expression>
+			</element>
+			<element kind="staticText" uuid="ae22fb75-bc00-4d8f-89b0-1449f5988e52" mode="Opaque" x="0" y="438" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" bold="true" vTextAlign="Middle">
+				<text><![CDATA[Compensation Details]]></text>
+			</element>
+			<element kind="staticText" uuid="1a3b6da7-2c9b-4d4a-92e0-99ae2163377a" x="0" y="463" width="150" height="20">
+				<text><![CDATA[Basic Salary]]></text>
+			</element>
+			<element kind="textField" uuid="24ba5ed3-9153-427f-a831-0a651a73f754" x="160" y="463" width="200" height="20">
+				<expression><![CDATA[$F{basic_salary}]]></expression>
+			</element>
+			<element kind="staticText" uuid="18cf9c56-8709-474c-b775-11b551e6330c" x="0" y="483" width="150" height="20">
+				<text><![CDATA[Hourly Rate]]></text>
+			</element>
+			<element kind="textField" uuid="9fa6739d-0f75-4c3a-96cd-58c42144bff5" x="160" y="483" width="200" height="20">
+				<expression><![CDATA[$F{hourly_rate}]]></expression>
+			</element>
+		</band>
+	</detail>
+</jasperReport>

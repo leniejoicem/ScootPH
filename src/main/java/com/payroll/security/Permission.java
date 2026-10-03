@@ -1,0 +1,16 @@
+package com.payroll.security;
+
+public enum Permission {
+    VIEW_OWN_PROFILE,
+    VIEW_OWN_PAYROLL,
+    REQUEST_LEAVE,
+
+    MANAGE_EMPLOYEES,
+    VIEW_EMPLOYEE_ATTENDANCE,
+    APPROVE_LEAVE,
+
+    VIEW_EMPLOYEE_PAYROLL,
+    MANAGE_PAYROLL,
+
+    MANAGE_USER_ROLES
+}

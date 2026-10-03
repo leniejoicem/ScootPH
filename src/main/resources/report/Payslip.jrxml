@@ -1,0 +1,316 @@
+<jasperReport name="MPH_Payslip" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c9d150e8-8fef-495c-85e6-650d9990b3de">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="payroll_id" class="java.lang.Integer"/>
+	<parameter name="LogoPath" class="java.net.URL">
+		<defaultValueExpression><![CDATA[$P{LogoPath}]]></defaultValueExpression>
+	</parameter>
+	<query language="SQL"><![CDATA[
+        SELECT * FROM report.vw_employee_payslip_report
+        WHERE payroll_id = $P{payroll_id}
+        ]]></query>
+	<field name="payroll_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="payroll_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="payroll_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="payroll_period_start_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="payroll_period_start_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="payroll_period_start_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="payroll_period_end_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="payroll_period_end_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="payroll_period_end_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="number_of_hours_worked" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="number_of_hours_worked"/>
+		<property name="com.jaspersoft.studio.field.label" value="number_of_hours_worked"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="computed_salary" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="computed_salary"/>
+		<property name="com.jaspersoft.studio.field.label" value="computed_salary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="total_contributions" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_contributions"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_contributions"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="net_pay" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="net_pay"/>
+		<property name="com.jaspersoft.studio.field.label" value="net_pay"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="employee_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="employee_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="total_allowance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_allowance"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_allowance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="sss_contribution" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="sss_contribution"/>
+		<property name="com.jaspersoft.studio.field.label" value="sss_contribution"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="phealth_contribution" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="phealth_contribution"/>
+		<property name="com.jaspersoft.studio.field.label" value="phealth_contribution"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="pagibig_contribution" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="pagibig_contribution"/>
+		<property name="com.jaspersoft.studio.field.label" value="pagibig_contribution"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="tax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="tax"/>
+		<property name="com.jaspersoft.studio.field.label" value="tax"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="hourly_rate" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="hourly_rate"/>
+		<property name="com.jaspersoft.studio.field.label" value="hourly_rate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="full_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="full_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="full_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="position" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="position"/>
+		<property name="com.jaspersoft.studio.field.label" value="position"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="rice_subsidy" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="rice_subsidy"/>
+		<property name="com.jaspersoft.studio.field.label" value="rice_subsidy"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="phone_allowance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="phone_allowance"/>
+		<property name="com.jaspersoft.studio.field.label" value="phone_allowance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<field name="cloth_allowance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="cloth_allowance"/>
+		<property name="com.jaspersoft.studio.field.label" value="cloth_allowance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="81" splitType="Stretch">
+		<element kind="staticText" uuid="a2f6b007-0016-47eb-8954-0953fa047b64" x="335" y="57" width="50" height="20" hTextAlign="Right">
+			<text><![CDATA[Date:]]></text>
+			<box rightPadding="4"/>
+		</element>
+		<element kind="textField" uuid="d52ba9a5-e717-4192-9d7f-8faff1861666" x="385" y="57" width="160" height="20" pattern="MMMM d, yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="staticText" uuid="63f40225-b583-4501-b606-7dedf7d4cf34" x="140" y="5" width="184" height="25" fontSize="19.0" bold="true">
+			<text><![CDATA[ScootPH]]></text>
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="cbe260a3-5b07-4404-8ab7-0ed4276da198" x="140" y="60" width="181" height="15">
+			<text><![CDATA[Email: corporate@scootph.com]]></text>
+		</element>
+		<element kind="staticText" uuid="aacb9ed1-96f8-4eda-a34e-5fa5887d9582" x="140" y="30" width="260" height="15">
+			<text><![CDATA[Bagong Nayon, Quezon City]]></text>
+		</element>
+		<element kind="staticText" uuid="521208c4-7130-4212-9636-2950e6eec162" x="140" y="45" width="180" height="15">
+			<text><![CDATA[Phone: (028) 911-5071]]></text>
+		</element>
+		<element kind="image" uuid="fe51d59f-3e3d-405f-be06-fb557840b4be" x="2" y="-3" width="100" height="80">
+			<expression><![CDATA[$P{LogoPath}]]></expression>
+		</element>
+	</title>
+	<pageHeader height="104" splitType="Stretch">
+		<element kind="staticText" uuid="f412a4a5-bbf4-4126-8767-913336f31571" x="200" y="5" width="170" height="25" fontSize="13.0" bold="true">
+			<text><![CDATA[EMPLOYEE PAYSLIP]]></text>
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="de97e420-4fc9-44ee-94b8-ff2fb7c8d61d" positionType="Float" x="1" y="55" width="80" height="20" forecolor="#000000" fontName="Arial" bold="true">
+			<text><![CDATA[Employee ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+		</element>
+		<element kind="staticText" uuid="9f77488c-fae5-4b45-92ad-77f643dba954" positionType="Float" x="1" y="77" width="80" height="20" forecolor="#000000" fontName="Arial" bold="true">
+			<text><![CDATA[Employee Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="235c11dc-9a7e-4aa7-844d-7426f73a66f4"/>
+		</element>
+		<element kind="staticText" uuid="f177f324-e640-4406-8eee-b300b5c64952" positionType="Float" x="1" y="35" width="80" height="20" forecolor="#000000" fontName="Arial" bold="true">
+			<text><![CDATA[Payslip No:]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+		</element>
+		<element kind="textField" uuid="bed772dd-002e-49c1-953e-bc1e032c6ff6" x="83" y="35" width="100" height="20">
+			<expression><![CDATA[$F{payroll_id}]]></expression>
+		</element>
+		<element kind="textField" uuid="ddfd3937-772f-47bc-bbd7-14f599c15cb6" x="82" y="55" width="100" height="20">
+			<expression><![CDATA[$F{employee_id}]]></expression>
+		</element>
+		<element kind="textField" uuid="82ac887a-9acd-471b-a320-7f7bdd171a7e" x="83" y="76" width="100" height="20">
+			<expression><![CDATA[$F{full_name}]]></expression>
+		</element>
+		<element kind="staticText" uuid="d46c1ff0-6593-4962-8122-c76bd8d416a3" positionType="Float" x="317" y="55" width="83" height="20" forecolor="#000000" fontName="Arial" bold="true">
+			<text><![CDATA[Period End Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+		</element>
+		<element kind="staticText" uuid="7a622302-f22a-4d97-ade0-b9259489d9f9" positionType="Float" x="318" y="77" width="56" height="20" forecolor="#000000" fontName="Arial" bold="true">
+			<text><![CDATA[Position]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="235c11dc-9a7e-4aa7-844d-7426f73a66f4"/>
+		</element>
+		<element kind="staticText" uuid="39540b33-db0a-4e90-8484-395e0a45ae0d" positionType="Float" x="318" y="35" width="82" height="20" forecolor="#000000" fontName="Arial" bold="true">
+			<text><![CDATA[Period Start Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+		</element>
+		<element kind="textField" uuid="e6e12282-45ff-44df-8fec-b7c752065b3d" x="431" y="35" width="124" height="20">
+			<expression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format$F{payroll_period_start_date}]]></expression>
+		</element>
+		<element kind="textField" uuid="e1082b06-026a-46f0-b579-d530d6635c92" x="431" y="55" width="123" height="20">
+			<expression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format$F{payroll_period_end_date}]]></expression>
+		</element>
+		<element kind="textField" uuid="ce6363c3-9aca-4839-ab50-f80c8f77bfdd" x="400" y="76" width="155" height="20">
+			<expression><![CDATA[$F{position}]]></expression>
+		</element>
+	</pageHeader>
+	<detail>
+		<band height="585" splitType="Stretch">
+			<element kind="staticText" uuid="c4ae10ef-6a85-47fb-9e81-aef9351cc6ae" mode="Opaque" x="0" y="517" width="555" height="20" forecolor="#030000" backcolor="#EFEFEF" fontSize="10.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[NET PAY]]></text>
+			</element>
+			<element kind="staticText" uuid="94a9d637-358a-4231-b3a7-60cccc924768" mode="Opaque" x="0" y="317" width="555" height="20" forecolor="#030000" backcolor="#EFEFEF" bold="true" vTextAlign="Middle">
+				<text><![CDATA[TOTAL CONTRIBUTIONS]]></text>
+			</element>
+			<element kind="staticText" uuid="f8d9f709-c6f9-4b7b-91ce-9471200389a9" mode="Opaque" x="0" y="189" width="555" height="20" forecolor="#030000" backcolor="#EFEFEF" fontSize="10.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+				<text><![CDATA[TOTAL BENEFITS]]></text>
+			</element>
+			<element kind="staticText" uuid="3c3ff3f0-f59c-4483-9cf7-cb98ba948420" positionType="Float" x="1" y="47" width="130" height="20" forecolor="#000000" fontName="Arial" fontSize="10.0" bold="false">
+				<text><![CDATA[Total Hours Worked]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="staticText" uuid="1f48fc70-2c57-49a1-a17f-c2976ca61d4d" positionType="Float" x="1" y="27" width="80" height="20" forecolor="#000000" fontName="Arial" fontSize="10.0" bold="false">
+				<text><![CDATA[Hourly Rate]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="textField" uuid="9b1fd83e-800b-46ae-9c2f-05048451d78d" x="451" y="27" width="100" height="20" fontSize="10.0" hTextAlign="Right">
+				<expression><![CDATA[$F{hourly_rate}]]></expression>
+			</element>
+			<element kind="textField" uuid="6558e20c-2a8a-42ef-845c-d3070226a1a2" x="450" y="47" width="100" height="20" fontSize="10.0" hTextAlign="Right">
+				<expression><![CDATA[$F{number_of_hours_worked}]]></expression>
+			</element>
+			<element kind="staticText" uuid="d88c7161-36cf-492b-99e9-be6c6e8d2eca" positionType="Float" x="1" y="147" width="154" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Phone Allowance]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="staticText" uuid="32ac3ae4-ef49-4496-8b00-0be6955c0d35" positionType="Float" x="1" y="169" width="169" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Clothing Allowance	]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="235c11dc-9a7e-4aa7-844d-7426f73a66f4"/>
+			</element>
+			<element kind="staticText" uuid="f0fb37e2-7d24-4eac-9390-ee960685ce48" positionType="Float" x="1" y="127" width="80" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Rice Subsidy]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="textField" uuid="7ae2cc3a-f09a-4f33-8b5b-4e7d7873d20d" x="453" y="127" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{rice_subsidy}]]></expression>
+			</element>
+			<element kind="textField" uuid="75b59946-eaf6-4e5e-a5be-3e4371222b44" x="453" y="147" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{phone_allowance}]]></expression>
+			</element>
+			<element kind="textField" uuid="b68539f2-5981-4324-b9f0-46e9173340f3" x="454" y="168" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{cloth_allowance}]]></expression>
+			</element>
+			<element kind="textField" uuid="93d3cccc-9655-4dac-bab3-13172b71376a" x="451" y="191" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{total_allowance}]]></expression>
+			</element>
+			<element kind="staticText" uuid="81d9be55-8488-4f1a-9197-f929e6c110b9" positionType="Float" x="1" y="267" width="80" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Philhealth]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="staticText" uuid="05dfb371-6dbf-42f6-b943-d61fb657e4ed" positionType="Float" x="1" y="289" width="80" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Pag-Ibig]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="235c11dc-9a7e-4aa7-844d-7426f73a66f4"/>
+			</element>
+			<element kind="staticText" uuid="f0b27eb1-cf86-4f27-8a42-5016892d6fa0" positionType="Float" x="1" y="247" width="80" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[SSS]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="textField" uuid="485949d8-a6a4-46fc-8a5a-4b23515dc60e" x="455" y="247" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{sss_contribution}]]></expression>
+			</element>
+			<element kind="textField" uuid="1966b441-b476-4ad4-bf3e-b051381d62a6" x="454" y="267" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{phealth_contribution}]]></expression>
+			</element>
+			<element kind="textField" uuid="a6f9514b-f61c-4d6c-af4c-dc57156a6465" x="455" y="288" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{pagibig_contribution}]]></expression>
+			</element>
+			<element kind="textField" uuid="1fba7673-53a1-4e0d-a086-09439f262643" x="453" y="317" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{total_contributions}]]></expression>
+			</element>
+			<element kind="staticText" uuid="4e209359-6908-43a0-b6b8-483e18c582d0" positionType="Float" x="1" y="375" width="130" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Withholding Tax]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="textField" uuid="e0a6b73e-fc6e-4a28-8556-642e9ba9758b" x="452" y="375" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{tax}]]></expression>
+			</element>
+			<element kind="staticText" uuid="2ba3fa58-986b-45b4-87f2-b8f86be16e55" positionType="Float" x="1" y="453" width="80" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Benefits]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="staticText" uuid="71c8e04a-deb1-4804-bc97-384290880906" positionType="Float" x="1" y="475" width="80" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Contributions]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="235c11dc-9a7e-4aa7-844d-7426f73a66f4"/>
+			</element>
+			<element kind="staticText" uuid="a1ee0ce2-c5aa-4e99-a565-f8ec7b4546d1" positionType="Float" x="1" y="433" width="130" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Computed Salary]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="614e76bf-5d28-4a5f-8913-903a8dd30a64"/>
+			</element>
+			<element kind="textField" uuid="ec824cb2-ff19-4c1b-867d-400686f150b6" x="453" y="433" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{computed_salary}]]></expression>
+			</element>
+			<element kind="textField" uuid="891df4c0-b26c-465d-a6b7-588c75083e38" x="452" y="453" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{total_allowance}]]></expression>
+			</element>
+			<element kind="textField" uuid="bc35db9e-8689-43de-9d42-440c79f10d44" x="453" y="474" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{total_contributions}]]></expression>
+			</element>
+			<element kind="staticText" uuid="944db655-1c1e-4981-bdb0-e46948ad252f" positionType="Float" x="1" y="496" width="140" height="20" forecolor="#000000" fontName="Arial" bold="false">
+				<text><![CDATA[Withholding Tax]]></text>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="235c11dc-9a7e-4aa7-844d-7426f73a66f4"/>
+			</element>
+			<element kind="textField" uuid="04a57fc3-5195-46a3-8435-2252c019265e" x="453" y="495" width="100" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{tax}]]></expression>
+			</element>
+			<element kind="textField" uuid="a23838d6-83c1-45be-bcdf-0b9cdc769df6" x="452" y="520" width="100" height="20" fontSize="10.0" bold="true" hTextAlign="Right">
+				<expression><![CDATA[$F{net_pay}]]></expression>
+			</element>
+			<element kind="staticText" uuid="d642dd76-73cd-4a49-9a4d-15f32b0e782f" mode="Opaque" x="0" y="0" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" fontSize="12.0" bold="true">
+				<text><![CDATA[EARNINGS]]></text>
+			</element>
+			<element kind="staticText" uuid="68006c0b-d92b-4a19-8996-0a4b9e3fcf79" mode="Opaque" x="0" y="100" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" fontSize="12.0" bold="true">
+				<text><![CDATA[BENEFITS]]></text>
+			</element>
+			<element kind="staticText" uuid="979dc457-bb07-4b6e-9c78-a733a5973314" mode="Opaque" x="0" y="220" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" fontSize="12.0" bold="true">
+				<text><![CDATA[CONTRIBUTIONS]]></text>
+			</element>
+			<element kind="staticText" uuid="7f4fac08-69ee-461b-acc1-e346c217edd9" mode="Opaque" x="0" y="349" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" fontSize="12.0" bold="true">
+				<text><![CDATA[TAX]]></text>
+			</element>
+			<element kind="staticText" uuid="0d0c7bbd-c55c-4009-8ea7-2218f5fb03ab" mode="Opaque" x="0" y="405" width="555" height="20" forecolor="#FFFFFF" backcolor="#000000" fontSize="12.0" bold="true">
+				<text><![CDATA[SUMMARY]]></text>
+			</element>
+			<element kind="staticText" uuid="15aea16e-99cc-4379-a117-ba9497d21d48" mode="Opaque" x="0" y="68" width="555" height="20" forecolor="#030000" backcolor="#EFEFEF" fontSize="10.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+				<text><![CDATA[COMPUTED SALARY]]></text>
+			</element>
+			<element kind="textField" uuid="26ccec23-ec20-4e17-a62a-6de851ec997c" x="451" y="70" width="100" height="20" fontSize="10.0" hTextAlign="Right">
+				<expression><![CDATA[$F{computed_salary}]]></expression>
+			</element>
+		</band>
+	</detail>
+</jasperReport>
